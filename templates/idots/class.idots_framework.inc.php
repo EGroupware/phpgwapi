@@ -110,7 +110,7 @@ class idots_framework extends egw_framework
 
 		if (html::$ua_mobile)
 		{
-			self::$css_include_files[] = '/phpgwapi/templates/idots/mobile.css';
+			self::includeCSS('/phpgwapi/templates/idots/mobile.css');
 			$extra['mobile'] = true;
 		}
 
