@@ -56,7 +56,7 @@ class egw_exception_wrong_parameter extends Api\Exception\WrongParameter {}
  *
  * @deprecated use Api\Exception\WrongUserInput
  */
-class egw_exception_wrong_userinput extends Api\Exception\WrongUserInput {}
+class egw_exception_wrong_userinput extends Api\Exception\WrongUserinput {}
 
 /**
  * Allow callbacks to request a redirect
