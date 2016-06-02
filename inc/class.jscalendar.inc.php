@@ -136,7 +136,7 @@ class jscalendar
 		Calendar.setup({
 			inputField  : "'.$name.'",'.(!$useicon ? '' : '
 			button      : "'.$name.'-trigger"').',
-			onUpdate    : function(){var input = document.getElementById("'.$name.'"); $j(input).change(); }
+			onUpdate    : function(){var input = document.getElementById("'.$name.'"); jQuery(input).change(); }
 		})
 	});
 </script>

@@ -35,11 +35,11 @@ egw_LAB.wait(function() {
 		//Click handler for extra apps menu
 		extra_icons_show.on(mouseHandler,function (event){
 				var extraIcon = event;
-				$j('html').on(mouseHandler,function(event) {
-					if ($j(event.target).parents('#menu1Container').length==0 && event.target !== extraIcon.target)
+				jQuery('html').on(mouseHandler,function(event) {
+					if (jQuery(event.target).parents('#menu1Container').length==0 && event.target !== extraIcon.target)
 					{
 						menu1Container.slideUp();
-						$j(this).unbind(event);
+						jQuery(this).unbind(event);
 					}
 				});
 				menu1Container.slideToggle();
@@ -54,11 +54,11 @@ egw_LAB.wait(function() {
 			var options = {
 				direction: "left"
 			};
-			$j('html').on('click',function(event) {
+			jQuery('html').on('click',function(event) {
 				if (event.target !== m2showIcon.target)
 				{
 					menu2Container.toggle('slide',options);
-					$j(this).unbind(event);
+					jQuery(this).unbind(event);
 				}
 			});
 			menu2Container.toggle("slide",options);
@@ -68,21 +68,21 @@ egw_LAB.wait(function() {
 	/**
 	 * Initialisation, when DOM is ready
 	 */
-	$j(function()
+	jQuery(function()
 	{
 		if (!egw(window).is_popup())
 		{
 			// Installing resize handler for divAppbox and et2_container, as et2 otherwise can not correctly size nextmatch
-			$j(window).resize(function(){
-				var appbox_height = $j(window).height()-$j('#topmenu').height()-$j('#divAppIconBar').height()-
-					$j('#divStatusBar').height()-$j('#divAppboxHeader').height()-$j('#divPoweredBy').height()-20;
+			jQuery(window).resize(function(){
+				var appbox_height = jQuery(window).height()-jQuery('#topmenu').height()-jQuery('#divAppIconBar').height()-
+					jQuery('#divStatusBar').height()-jQuery('#divAppboxHeader').height()-jQuery('#divPoweredBy').height()-20;
 				//console.log('setting height of '+appbox_height);
-				$j('#divAppbox').css('min-height', appbox_height+'px');
-				$j('.et2_container').height(appbox_height-7);
+				jQuery('#divAppbox').css('min-height', appbox_height+'px');
+				jQuery('.et2_container').height(appbox_height-7);
 			});
-			$j(window).resize();
-			$j(window).load(function(){	// fixes sometimes not called resize, probably due to timing issues
-				$j(window).resize();
+			jQuery(window).resize();
+			jQuery(window).load(function(){	// fixes sometimes not called resize, probably due to timing issues
+				jQuery(window).resize();
 			});
 		}
 		
