@@ -361,7 +361,7 @@ class uiaccountsel
 
 		if ($multiple >= 1)
 		{
-			$GLOBALS['egw']->js->set_onload("copyOptions('$element_id');");
+			egw_framework::set_onload("copyOptions('$element_id');");
 		}
 		$GLOBALS['egw_info']['flags']['app_header'] = lang('search or select accounts');
 		common::egw_header();
