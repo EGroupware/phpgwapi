@@ -135,6 +135,26 @@ class accounts extends Api\Accounts
 	}
 
 	/**
+	 * Reads the data of one account
+	 *
+	 * It's depricated to use read with out parameter to read the internal data of this class!!!
+	 * All key of the returned array use the 'account_' prefix.
+	 * For backward compatibility some values are additionaly availible without the prefix, using them is depricated!
+	 *
+	 * @param int|string $id numeric account_id or string with account_lid (use of default value of 0 is depricated!!!)
+	 * @param boolean $set_depricated_names =false set _additionaly_ the depricated keys without 'account_' prefix
+	 * @return array|boolean array with account data (keys: account_id, account_lid, ...) or false if account not found
+	 */
+	function read($id=0, $set_depricated_names=false)
+	{
+		if (!$id)	// deprecated use!!!
+		{
+			return $this->data ? $this->data : $this->read_repository();
+		}
+		return parent::read($id, $set_depricated_names);
+	}
+
+	/**
 	 * saves the account-data in the internal data-structure of this class to the repository
 	 *
 	 * @deprecated use save of $GLOBALS['egw']->accounts and not own instances of the accounts class
