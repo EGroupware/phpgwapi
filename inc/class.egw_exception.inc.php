@@ -24,7 +24,10 @@ use EGroupware\Api;
  *
  * @deprecated use Api\Exception
  */
-class egw_exception extends Api\Exception {}
+if (!class_exists('egw_exception', false))
+{
+	class egw_exception extends Api\Exception {}
+}
 
 /**
  * A record or application entry was not found for the given id
