@@ -40,39 +40,16 @@ class egw_session extends Api\Session
 	 */
 	public static function &appsession($location = 'default', $appname = '', $data = '##NOTHING##')
 	{
-		if (isset($_SESSION[self::EGW_SESSION_ENCRYPTED]))
-		{
-			if (self::ERROR_LOG_DEBUG) error_log(__METHOD__.' called after session was encrypted --> ignored!');
-			return false;	// can no longer store something in the session, eg. because commit_session() was called
-		}
 		if (!$appname)
 		{
 			$appname = $GLOBALS['egw_info']['flags']['currentapp'];
 		}
 
 		// allow to store eg. '' as the value.
-		if ($data === '##NOTHING##')
+		if (func_num_args() === 2 || $data === '##NOTHING##')
 		{
-			if(isset($_SESSION[self::EGW_APPSESSION_VAR][$appname]) && array_key_exists($location,$_SESSION[self::EGW_APPSESSION_VAR][$appname]))
-			{
-				$ret =& $_SESSION[self::EGW_APPSESSION_VAR][$appname][$location];
-			}
-			else
-			{
-				$ret = false;
-			}
+			return Api\Cache::getSession($appname, $location);
 		}
-		else
-		{
-			$_SESSION[self::EGW_APPSESSION_VAR][$appname][$location] =& $data;
-			$ret =& $_SESSION[self::EGW_APPSESSION_VAR][$appname][$location];
-		}
-		if (self::ERROR_LOG_DEBUG === 'appsession')
-		{
-			error_log(__METHOD__."($location,$appname,$data) === ".(is_scalar($ret) && strlen($ret) < 50 ?
-				(is_bool($ret) ? ($ret ? '(bool)true' : '(bool)false') : $ret) :
-				(strlen($r = array2string($ret)) < 50 ? $r : substr($r,0,50).' ...')));
-		}
-		return $ret;
+		return Api\Cache::setSession($appname, $location, $data);
 	}
 }
