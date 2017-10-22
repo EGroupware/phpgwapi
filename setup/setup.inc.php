@@ -6,7 +6,6 @@
  * @package api
  * @subpackage setup
  * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
- * @version $Id$
  */
 
 /* Basic information about this app */
@@ -18,12 +17,12 @@ $setup_info['phpgwapi']['enable']    = 3;
 $setup_info['phpgwapi']['app_order'] = 1;
 $setup_info['phpgwapi']['license'] = 'GPL';
 $setup_info['phpgwapi']['maintainer']	= $setup_info['phpgwapi']['author']	= array(
-	'name'  => 'EGroupware coreteam',
-	'email' => 'egroupware-developers@lists.sourceforge.net',
+	'name'  => 'EGroupware GmbH',
+	'email' => 'info@egroupware.org',
 );
 
 // old Api depends on new one
 $setup_info['phpgwapi']['depends']['api'] = array(
 	'appname' => 'api',
-	'versions' => Array('16.1')
+	'versions' => Array('16.1', '17.1')
 );
