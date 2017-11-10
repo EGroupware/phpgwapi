@@ -524,6 +524,12 @@ function phpgwapi_upgrade1_9_020()
 				'cf_name' => $name,
 				'cf_app'  => $row['config_app'],
 			);
+			// convert date format in len to key "format" in values
+			if (in_array($cf['type'], array('date', 'date-time')) && !empty($cf['len']) && !is_numeric($cf['len']))
+			{
+				if (!is_array($cf['values'])) $cf['values'] = array();
+				$cf['values']['format'] = $cf['len'];
+			}
 			foreach($cf as $attr => $val)
 			{
 				switch($attr)
