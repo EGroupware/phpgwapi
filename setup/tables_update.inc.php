@@ -8,7 +8,6 @@
  * @package api
  * @subpackage setup
  * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
- * @version $Id$
  */
 
 /* Include older eGroupWare update support */
@@ -53,13 +52,6 @@ function phpgwapi_upgrade14_1()
  */
 function phpgwapi_upgrade14_1_900()
 {
-	// running 14.2 update, as add_account will write account_description and gives SQL error if it does not exist
-	$GLOBALS['egw_setup']->oProc->AddColumn('egw_accounts','account_description',array(
-		'type' => 'varchar',
-		'precision' => '255',
-		'comment' => 'group description'
-	));
-
 	// Create anonymous user for sharing of files
 	$GLOBALS['egw_setup']->add_account('NoGroup', 'No', 'Rights', false, false);
 	$anonymous = $GLOBALS['egw_setup']->add_account('anonymous', 'SiteMgr', 'User', 'anonymous', 'NoGroup');
@@ -69,7 +61,7 @@ function phpgwapi_upgrade14_1_900()
 }
 function phpgwapi_upgrade14_2()
 {
-	// check if egw_accounts.account_description already exists, as it might have been created by above upgrade
+	// check if egw_accounts.account_description already exists, as it might have been created by setup
 	$meta = $GLOBALS['egw_setup']->db->metadata('egw_accounts', true);
 	if (!isset($meta['meta']['account_description']))
 	{
