@@ -14,9 +14,9 @@ drag to move	jscalendar	es-es	Arrastre para mover
 go today	jscalendar	es-es	Ir hoy
 next month (hold for menu)	jscalendar	es-es	Mes siguiente (mantener para menú)
 next year (hold for menu)	jscalendar	es-es	Año siguiente (mantener para menú)
+phpgwapi	common	es-es	old EGroupware API
 prev. month (hold for menu)	jscalendar	es-es	Mes anterior (mantener para menú)
 prev. year (hold for menu)	jscalendar	es-es	Año anterior (mantener para menú)
 time selection:	jscalendar	es-es	Seleccionar hora:
 toggle first day of week	jscalendar	es-es	Cambiar el primer día de la semana
-wk	jscalendar	es-es	wk
-phpgwapi	common	es-es	old EGroupware API
+wk	jscalendar	es-es	semana
