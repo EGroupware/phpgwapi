@@ -701,10 +701,7 @@ class common
 	 */
 	static function app_header()
 	{
-		if (file_exists(EGW_APP_INC . '/header.inc.php'))
-		{
-			include(EGW_APP_INC . '/header.inc.php');
-		}
+
 	}
 
 	/**

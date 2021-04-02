@@ -15,6 +15,20 @@
 use EGroupware\Api;
 
 /**
+ * Polyfill for removed each function to keep old code alive
+ */
+if ((float)PHP_VERSION >= 8.0 && !function_exists('each'))
+{
+	function each(&$arr)
+	{
+		if (!is_array($arr) || key($arr) === null) return null;
+		$ret = [key($arr), current($arr)];
+		next($arr);
+		return $ret;
+	}
+}
+
+/**
  * Framework: virtual base class for all template sets
  *
  * @deprecated use Api\Framework
@@ -88,38 +102,14 @@ abstract class egw_framework extends Api\Framework
 	}
 
 	/**
-	 * Get the (depricated) application footer
+	 * Get the (deprecated) application footer
 	 *
 	 * @deprecated
 	 * @return string html
 	 */
 	protected static function _get_app_footer()
 	{
-		ob_start();
-		// Include the apps footer files if it exists
-		if (EGW_APP_INC != EGW_API_INC &&	// this prevents an endless inclusion on the homepage
-			                                // (some apps set currentapp in hook_home => it's not releyable)
-			(file_exists (EGW_APP_INC . '/footer.inc.php') || isset($_GET['menuaction'])) &&
-			$GLOBALS['egw_info']['flags']['currentapp'] != 'api' &&
-			$GLOBALS['egw_info']['flags']['currentapp'] != 'login' &&
-			$GLOBALS['egw_info']['flags']['currentapp'] != 'logout' &&
-			!@$GLOBALS['egw_info']['flags']['noappfooter'])
-		{
-			list(, $class) = explode('.',(string)$_GET['menuaction']);
-			if ($class && is_object($GLOBALS[$class]) && is_array($GLOBALS[$class]->public_functions) &&
-				isset($GLOBALS[$class]->public_functions['footer']))
-			{
-				$GLOBALS[$class]->footer();
-			}
-			elseif(file_exists(EGW_APP_INC.'/footer.inc.php'))
-			{
-				include(EGW_APP_INC . '/footer.inc.php');
-			}
-		}
-		$content = ob_get_contents();
-		ob_end_clean();
-
-		return $content;
+		return '';
 	}
 
 	/**

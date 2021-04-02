@@ -23,20 +23,6 @@
 	* Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA            *
 	\**************************************************************************/
 
-	/* $Id$ */
-
-	$d1 = strtolower(@substr(EGW_API_INC,0,3));
-	$d2 = strtolower(@substr(EGW_SERVER_ROOT,0,3));
-	$d3 = strtolower(@substr(EGW_APP_INC,0,3));
-	if($d1 == 'htt' || $d1 == 'ftp' || $d2 == 'htt' || $d2 == 'ftp' || $d3 == 'htt' || $d3 == 'ftp')
-	{
-		echo 'Failed attempt to break in via an old Security Hole!<br>'."\n";
-		exit;
-	}
-	unset($d1);
-	unset($d2);
-	unset($d3);
-
 	/**
 	* eGroupWare datetime class that contains common date/time functions
 	*
