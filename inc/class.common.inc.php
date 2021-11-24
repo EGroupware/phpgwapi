@@ -314,7 +314,7 @@ class common
 	 */
 	static function grab_owner_name($accountid=null)
 	{
-		return Api\Accounts::username($accountid);
+		return Api\Accounts::username((int)$accountid);
 	}
 
 	/**
