@@ -446,8 +446,8 @@ function phpgwapi_upgrade1_5_011()
 	egw_vfs::find('sqlfs://default/',array(
 		'url'  => true,
 		'depth' => true,
-	),create_function('$url,$stat','
-		$new_path = sqlfs_stream_wrapper::_fs_path($stat["ino"]);	// loads egw_info/server/files_dir (!)
+	), function($url,$stat) {
+		$new_path = sqlfs_stream_wrapper::_fs_path($stat["ino"]);   // loads egw_info/server/files_dir (!)
 		// if file not found in filesystem convert filename to hardcoded old charset and try that one
 		$old_charset = "iso-8859-1";
 		if (file_exists($old_path = $GLOBALS["egw_info"]["server"]["files_dir"].($path=parse_url($url,PHP_URL_PATH))) ||
@@ -470,7 +470,7 @@ function phpgwapi_upgrade1_5_011()
 		{
 			echo "phpgwapi_upgrade1_5_011() $stat[ino]: $url: $old_path not found!\n";
 		}
-	'));
+	});
 	if ($GLOBALS['DEBUG'] && isset($_SERVER['HTTP_HOST'])) echo "</pre>\n";
 
 	return $GLOBALS['setup_info']['phpgwapi']['currentver'] = '1.5.012';
