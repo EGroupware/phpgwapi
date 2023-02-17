@@ -1,0 +1,22 @@
+(shift-)click or drag to change value	jscalendar	km	(Shift-) ចុច ឬអូសដើម្បីប្តូរតម្លៃ
+- click on any of the time parts to increase it	jscalendar	km	- ចុចលើផ្នែកណាមួយនៃពេលវេលាដើម្បីបង្កើនវា។
+- hold mouse button on any of the above buttons for faster selection.	jscalendar	km	- សង្កត់ប៊ូតុងកណ្ដុរលើប៊ូតុងណាមួយខាងលើសម្រាប់ការជ្រើសរើសលឿនជាងមុន។
+- or click and drag for faster selection.	jscalendar	km	- ឬចុចហើយអូសសម្រាប់ការជ្រើសរើសលឿនជាងមុន។
+- or shift-click to decrease it	jscalendar	km	- ឬចុច Shift ដើម្បីបន្ថយវា។
+- use the %1, %2 buttons to select month	jscalendar	km	- ប្រើប៊ូតុង %1, %2 ដើម្បីជ្រើសរើសខែ
+- use the %1, %2 buttons to select year	jscalendar	km	- ប្រើប៊ូតុង%1, %2 ដើម្បីជ្រើសរើសឆ្នាំ
+3 number of chars for day-shortcut	jscalendar	km	លេខតួចំនួន 3 សម្រាប់ផ្លូវកាត់ថ្ងៃ
+3 number of chars for month-shortcut	jscalendar	km	លេខតួចំនួន 3 សម្រាប់ផ្លូវកាត់ខែ
+about the calendar	jscalendar	km	អំពីប្រតិទិន
+date selection:	jscalendar	km	ការជ្រើសរើសកាលបរិច្ឆេទ៖
+display %s first	jscalendar	km	បង្ហាញ %s ជាមុនសិន
+drag to move	jscalendar	km	អូសដើម្បីផ្លាស់ទី
+go today	jscalendar	km	ទៅថ្ងៃនេះ
+next month (hold for menu)	jscalendar	km	ខែក្រោយ (ទុកសម្រាប់ម៉ឺនុយ)
+next year (hold for menu)	jscalendar	km	ឆ្នាំក្រោយ (ទុកសម្រាប់ម៉ឺនុយ)
+phpgwapi	common	km	EGroupware API ចាស់
+prev. month (hold for menu)	jscalendar	km	មុន ខែ (ទុកសម្រាប់ម៉ឺនុយ)
+prev. year (hold for menu)	jscalendar	km	មុន ឆ្នាំ (ទុកសម្រាប់ម៉ឺនុយ)
+time selection:	jscalendar	km	ការជ្រើសរើសពេលវេលា៖
+toggle first day of week	jscalendar	km	បិទបើកថ្ងៃដំបូងនៃសប្តាហ៍
+wk	jscalendar	km	wk
