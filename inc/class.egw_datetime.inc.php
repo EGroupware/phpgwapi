@@ -559,7 +559,7 @@
 		 */
 		function __construct()
 		{
-			$this->tz_offset = 3600 * @$GLOBALS['egw_info']['user']['preferences']['common']['tz_offset'];
+			$this->tz_offset = 3600 * ($GLOBALS['egw_info']['user']['preferences']['common']['tz_offset'] ?? null);
 			print_debug('datetime::datetime::gmtnow',$this->gmtnow,'api');
 
 			// If we already have a GMT time, no need to do this again.
