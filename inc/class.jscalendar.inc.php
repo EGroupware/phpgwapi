@@ -104,7 +104,7 @@ class jscalendar
 		}
 		if ($year && $month && $day)
 		{
-			$date = date($this->dateformat,$ts = adodb_mktime(12,0,0,$month,$day,$year));
+			$date = date($this->dateformat,$ts = mktime(12,0,0,$month,$day,$year));
 			if (strpos($this->dateformat,'M') !== false)
 			{
 				static $substr;
@@ -270,7 +270,7 @@ egw_LAB.wait(function() {
 		);
 		if ($raw)
 		{
-			$ret[$raw] = adodb_mktime(12,0,0,$date['m'],$date['d'],$date['Y']);
+			$ret[$raw] = mktime(12,0,0,$date['m'],$date['d'],$date['Y']);
 		}
 		//echo "<p>jscalendar::input2date('$datestr','$raw',$day','$month','$year') = "; print_r($ret); echo "</p>\n";
 
