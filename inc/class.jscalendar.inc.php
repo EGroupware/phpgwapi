@@ -98,13 +98,13 @@ class jscalendar
 
 		if ($date && (is_int($date) || is_numeric($date)))
 		{
-			$year  = (int)adodb_date('Y',$date);
-			$month = (int)adodb_date('n',$date);
-			$day   = (int)adodb_date('d',$date);
+			$year  = (int)date('Y',$date);
+			$month = (int)date('n',$date);
+			$day   = (int)date('d',$date);
 		}
 		if ($year && $month && $day)
 		{
-			$date = adodb_date($this->dateformat,$ts = adodb_mktime(12,0,0,$month,$day,$year));
+			$date = date($this->dateformat,$ts = adodb_mktime(12,0,0,$month,$day,$year));
 			if (strpos($this->dateformat,'M') !== false)
 			{
 				static $substr;
@@ -112,13 +112,13 @@ class jscalendar
 				static $chars_shortcut;
 				if (is_null($chars_shortcut)) $chars_shortcut = (int)lang('3 number of chars for month-shortcut');	// < 0 to take the chars from the end
 
-				$short = translation::translate($m = adodb_date('M',$ts), null, '*');	// check if we have a translation of the short-cut
+				$short = translation::translate($m = date('M',$ts), null, '*');	// check if we have a translation of the short-cut
 				if ($substr($short,-1) == '*')	// if not generate one by truncating the translation of the long name
 				{
-					$short = $chars_shortcut > 0 ? $substr(lang(adodb_date('F',$ts)),0,$chars_shortcut) :
-						$substr(lang(adodb_date('F',$ts)),$chars_shortcut);
+					$short = $chars_shortcut > 0 ? $substr(lang(date('F',$ts)),0,$chars_shortcut) :
+						$substr(lang(date('F',$ts)),$chars_shortcut);
 				}
-				$date = str_replace(adodb_date('M',$ts),$short,$date);
+				$date = str_replace(date('M',$ts),$short,$date);
 			}
 		}
 		if ($helpmsg !== '')
@@ -162,7 +162,7 @@ class jscalendar
 	{
 		if ($date)	// string if format YYYYmmdd or timestamp
 		{
-			$date = is_int($date) ? adodb_date('m/d/Y',$date) :
+			$date = is_int($date) ? date('m/d/Y',$date) :
 				substr($date,4,2).'/'.substr($date,6,2).'/'.substr($date,0,4);
 		}
 		return '
@@ -235,8 +235,8 @@ egw_LAB.wait(function() {
 					$partcial_match = 0;
 					for($i = 1; $i <= 12; $i++)
 					{
-						$long_name  = lang(adodb_date('F',mktime(12,0,0,$i,1,2000)));
-						$short_name = translation::translate(adodb_date('M',mktime(12,0,0,$i,1,2000)), null, '*');	// do we have a translation of the short-cut
+						$long_name  = lang(date('F',mktime(12,0,0,$i,1,2000)));
+						$short_name = translation::translate(date('M',mktime(12,0,0,$i,1,2000)), null, '*');	// do we have a translation of the short-cut
 						if (substr($short_name,-1) == '*')	// if not generate one by truncating the translation of the long name
 						{
 							$short_name = substr($long_name,0,(int) lang('3 number of chars for month-shortcut'));
