@@ -393,22 +393,22 @@ class egw_recursive_directory_iterator_wrapper implements RecursiveIterator
 		$this->fillelemarray();
 	}
 
-	public function valid()
+	public function valid(): bool
 	{
 		return $this->index < count($this->elements);
 	}
 	
-	public function next()
+	public function next(): void
 	{
 		$this->index++;
 	}
 	
-	public function current()
+	public function current(): mixed
 	{
 		return $this->elements[$this->index];
 	}
 	
-	public function key()
+	public function key(): mixed
 	{
 		return $this->elements[$this->index]['name'];
 	}
@@ -444,7 +444,7 @@ class egw_recursive_directory_iterator_wrapper implements RecursiveIterator
 			$this->sortfunc, false);
 	}
 
-	public function rewind()
+	public function rewind(): void
 	{
 		$this->index = 0;
 	}
@@ -680,13 +680,13 @@ class egw_find_iterator implements Iterator
 		$this->rewind();
 	}
 	
-	public function current()
+	public function current(): mixed
 	{
 		$this->prefetch_current();
 		return $this->current_cache;
 	}
 	
-	public function key()
+	public function key(): mixed
 	{
 		$this->prefetch_current();
 		if ($this->pairs)
@@ -699,13 +699,13 @@ class egw_find_iterator implements Iterator
 		}
 	}
 	
-	public function next()
+	public function next(): void
 	{
 		$this->needs_next = true;
 		$this->prefetch_current();
 	}
 	
-	public function valid()
+	public function valid(): bool
 	{
 		if (!$this->upper_limit || ($this->index <= $this->upper_limit))
 		{
@@ -718,7 +718,7 @@ class egw_find_iterator implements Iterator
 		}
 	}
 	
-	public function rewind()
+	public function rewind(): void
 	{
 		if (!$this->rewind)
 		{
